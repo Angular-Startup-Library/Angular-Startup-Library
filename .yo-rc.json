@@ -1,0 +1,30 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "Jeremy Stover",
+        "email": "jeremy.ryan.stover@gmail.com"
+      },
+      "libraryName": {
+        "original": "Angular Startup Library",
+        "camelized": "angularStartupLibrary",
+        "dasherized": "-angular-startup-library",
+        "slugified": "angular-startup-library",
+        "parts": [
+          "angular",
+          "startup",
+          "library"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": true,
+      "includeModuleServices": true,
+      "includeAngularModuleResource": true,
+      "includeAngularModuleCookies": true,
+      "includeAngularModuleSanitize": true,
+      "librarySrcDirectory": "src/-angular-startup-library",
+      "libraryUnitTestDirectory": "test/unit/-angular-startup-library",
+      "libraryUnitE2eDirectory": "test/e2e/-angular-startup-library"
+    }
+  }
+}

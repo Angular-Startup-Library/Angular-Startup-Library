@@ -1,0 +1,27 @@
+{
+  "name": "angular-startup-library",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Jeremy Stover",
+      "email": "jeremy.ryan.stover@gmail.com"
+    }
+  ],
+  "main": ["dist/angular-startup-library.js"],
+  "ignore": [
+    "src",
+    "test",
+    "gulpfile.js",
+    "karma-*.conf.js",
+    "**/.*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": ">=1.2.0",
+    "angular-scenario": ">=1.2.0",
+    "angular": ">=1.2.0",
+    "angular-resource": ">=1.2.0",
+    "angular-cookies": ">=1.2.0",
+    "angular-sanitize": ">=1.2.0"
+  }
+}
