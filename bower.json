@@ -1,21 +1,23 @@
 {
   "name": "angular-startup-library",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "authors": [
-    {
-      "name": "Jeremy Stover",
-      "email": "jeremy.ryan.stover@gmail.com"
-    }
+    "[object Object]"
   ],
-  "main": ["dist/angular-startup-library.js"],
+  "main": [
+    "dist/angular-startup-library.js"
+  ],
   "ignore": [
     "src",
     "test",
     "gulpfile.js",
     "karma-*.conf.js",
-    "**/.*"
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower",
+    "tests"
   ],
-  "dependencies": {},
   "devDependencies": {
     "angular-mocks": ">=1.2.0",
     "angular-scenario": ">=1.2.0",
@@ -23,5 +25,16 @@
     "angular-resource": ">=1.2.0",
     "angular-cookies": ">=1.2.0",
     "angular-sanitize": ">=1.2.0"
-  }
+  },
+  "description": "Oh, you liked Design Modos Startup Framework? So did I until I figured out it was almost impossible to use with modern web apps. Angular Startup Library to the rescue. Oh, and I don't charge for my software...",
+  "keywords": [
+    "angular",
+    "startup",
+    "library",
+    "components",
+    "angularjs",
+    "startuplibrary",
+    "startupframework"
+  ],
+  "license": "MIT"
 }
