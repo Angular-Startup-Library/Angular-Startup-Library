@@ -37,7 +37,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('angular-startup-library/partials/header-one.html',
-    '<nav class="navbar navbar-custom navbar-static-top"><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button> <a class=navbar-brand href=#>Title</a></div><div class="collapse navbar-collapse"><ul class="nav navbar-nav"><li class=active><a href=#>Home</a></li><li><a href=#>Link</a></li><li><a href=#>Link</a></li></ul><form class="navbar-form navbar-left" role=search><div class=form-group><input type=text class=form-control placeholder=Search></div><button type=submit class="btn btn-default">Submit</button></form><ul class="nav navbar-nav navbar-right"><li><a href=#>Link</a></li><li class=dropdown><a href=# class=dropdown-toggle data-toggle=dropdown>Dropdown <b class=caret></b></a><ul class="dropdown-menu pull-right"><li><a href=#>Action</a></li><li><a href=#>Another action</a></li><li><a href=#>Something else here</a></li><li><a href=#>Separated link</a></li></ul></li></ul></div></nav>');
+    '<nav class="navbar navbar-custom navbar-static-top"><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button> <a class=navbar-brand href=#><img class="image-responsive pull-left" data-ng-src={{header.logo}} width=50 height=50> <span class=pull-right>{{header.title}}</span></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav navbar-right"><li data-ng-repeat="link in header.links" data-ng-class="{\'active\': location.path() == link.url}"><a data-ng-click=link.click() data-toggle=collapse data-target=.navbar-collapse>{{link.text}}</a></li></ul></div></nav>');
 }]);
 })();
 
@@ -65,12 +65,58 @@ module.run(['$templateCache', function($templateCache) {
 }]);
 })();
 
+(function(module) {
+try {
+  module = angular.module('aslPartials');
+} catch (e) {
+  module = angular.module('aslPartials', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('angular-startup-library/partials/subHeader-one.html',
+    '<div class="subHeader subheader-one well"><div class=container><div class=row><div class="col-xs-12 text-center"><h1>Hello World!</h1></div></div></div></div>');
+}]);
+})();
+
+/**
+ * @ngdoc function
+ * @name headerOne
+ * @description
+ * This directive will output a navbar onto the screen.
+ *
+ * The data to pass into the model attribute should look like this:
+ * {
+ * 	header: {
+ * 		logo: 'url to image',
+ * 		title: 'Name of site(optional)',
+ * 		links: [
+ * 			{
+ * 				text: 'Home',
+ * 				click: function(){
+ * 					$location.path('/');
+ * 				}
+ * 			},
+ * 			{
+ * 				text: 'About',
+ * 				click: function(){
+ * 					$location.path('/about');
+ * 				}
+ * 			}
+ * 		]
+ * 	}
+ * }
+ *
+ */
 angular.module('angularStartupLibrary.directives')
-.directive('headerOne', function() {
+.directive('headerOne', function($location) {
   return {
     templateUrl: 'angular-startup-library/partials/header-one.html',
-    scope: {},
-    restrict: 'EA'
+    scope: {
+      header: '='
+    },
+    restrict: 'EA',
+    link: function(scope){
+      scope.location = $location;
+    }
 
   };
 });
@@ -85,115 +131,19 @@ angular.module('angularStartupLibrary.directives')
   };
 });
 
+angular.module('angularStartupLibrary.directives')
+.directive('subheaderOne', function() {
+  return {
+    templateUrl: 'angular-startup-library/partials/subHeader-one.html',
+    scope: {},
+    restrict: 'EA'
+
+  };
+});
+
 angular.module('angularStartupLibrary.services')
 .provider('startup', function() {
   this.$get = function(){
 
   };
 });
-
-(function(module) {
-try {
-  module = angular.module('aslPartials');
-} catch (e) {
-  module = angular.module('aslPartials', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('angular-startup-library/partials/header-one.html',
-    '<header class="header-1">\n' +
-    '  <div class="container">\n' +
-    '    <div class="row">\n' +
-    '      <nav class="navbar col-sm-12" role="navigation">\n' +
-    '        <div class="navbar-header">\n' +
-    '          <button type="button" class="navbar-toggle"></button>\n' +
-    '          <a class="brand" href="#">\n' +
-    '            <img src="../../common-files/img/header/logo@2x.png" width="50" height="50" alt="">Startup</a>\n' +
-    '        </div>\n' +
-    '        <div class="collapse navbar-collapse">\n' +
-    '          <ul class="nav pull-right">\n' +
-    '            <li><a href="#">asdf</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">WORK</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">BLOG</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">CONTACT</a>\n' +
-    '            </li>\n' +
-    '          </ul>\n' +
-    '          <ul class="subnav">\n' +
-    '            <li><a href="#">Privacy</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Terms</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Advertise</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Affiliates</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Newsletter</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">About</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Contact Us</a>\n' +
-    '            </li>\n' +
-    '          </ul>\n' +
-    '        </div>\n' +
-    '      </nav>\n' +
-    '    </div>\n' +
-    '  </div>\n' +
-    '</header>\n' +
-    '');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('aslPartials');
-} catch (e) {
-  module = angular.module('aslPartials', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('angular-startup-library/partials/header-two.html',
-    '<header class="header-2">\n' +
-    '  <div class="container">\n' +
-    '    <div class="row">\n' +
-    '      <nav class="navbar col-sm-12" role="navigation">\n' +
-    '        <div class="navbar-header">\n' +
-    '          <button type="button" class="navbar-toggle"></button>\n' +
-    '          <a class="brand" href="#">\n' +
-    '            <img src="../../common-files/icons/Infinity-Loop@2x.png" width="50" height="50" alt="">Startup</a>\n' +
-    '        </div>\n' +
-    '        <div class="collapse navbar-collapse">\n' +
-    '          <ul class="nav pull-right">\n' +
-    '            <li class="active"><a href="#">Home</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Work</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Blog</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Contact</a>\n' +
-    '            </li>\n' +
-    '          </ul>\n' +
-    '          <ul class="subnav">\n' +
-    '            <li><a href="#">Privacy</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Terms</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Advertise</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Affiliates</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Newsletter</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">About</a>\n' +
-    '            </li>\n' +
-    '            <li><a href="#">Contact Us</a>\n' +
-    '            </li>\n' +
-    '          </ul>\n' +
-    '        </div>\n' +
-    '      </nav>\n' +
-    '    </div>\n' +
-    '  </div>\n' +
-    '</header>\n' +
-    '');
-}]);
-})();
