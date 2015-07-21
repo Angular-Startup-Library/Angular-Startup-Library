@@ -26,7 +26,16 @@
     "angular-cookies": ">=1.2.0",
     "angular-sanitize": ">=1.2.0"
   },
-  "description": "Oh, you liked Design Modos Startup Framework? So did I until I figured out it was almost impossible to use with modern web apps. Angular Startup Library to the rescue. Oh, and I don't charge for my software...",
+  "dependencies": {
+    "angular-mocks": ">=1.2.0",
+    "angular-scenario": ">=1.2.0",
+    "angular": ">=1.2.0",
+    "angular-resource": ">=1.2.0",
+    "angular-cookies": ">=1.2.0",
+    "angular-sanitize": ">=1.2.0",
+    "bootstrap": "~3.3.5"
+  },
+  "description": "Building a startup website doesn't have to be hard, and we can't all be designers. Angular Startup Library is a library of pre-built customizable UI components and helper services, similar to DesignModo's Startup Framework, with the ability to do actual work with it. Oh, and I don't charge for my software...",
   "keywords": [
     "angular",
     "startup",
