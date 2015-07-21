@@ -12,6 +12,7 @@
 
   // Modules
   angular.module('angularStartupLibrary.directives', []);
+  angular.module('angularStartupLibrary.directives', []);
   angular.module('angularStartupLibrary.filters', []);
   angular.module('angularStartupLibrary.services', []);
   angular.module('angularStartupLibrary',
@@ -22,7 +23,8 @@
           'angularStartupLibrary.services',
           'ngResource',
           'ngCookies',
-          'ngSanitize'
+          'ngSanitize',
+          'aslPartials'
       ]);
 
 })(angular);

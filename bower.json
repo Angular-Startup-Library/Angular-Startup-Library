@@ -2,7 +2,7 @@
   "name": "angular-startup-library",
   "version": "0.0.1",
   "authors": [
-    "[object Object]"
+    "Jeremy Stover (Kadajett) <jeremy.ryan.stover@gmail.com>"
   ],
   "main": [
     "dist/angular-startup-library.js"

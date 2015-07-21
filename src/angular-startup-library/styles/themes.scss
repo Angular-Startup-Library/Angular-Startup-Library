@@ -1,0 +1,56 @@
+@import 'colors.scss';
+.baseTheme {
+  $primary: $washioBlueLight;
+  $primaryDark: $washioBlueDark;
+  $backgroundLight: $washioBackgroundLight;
+  $backgroundDark: $washioBackgroundDark;
+
+  background-color: $backgroundLight;
+  font-family: 'Open Sans', sans-serif;
+  //colors
+
+.navbar-custom {
+	background-color: $primary;
+	color: $white;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0;
+	.navbar-brand {
+		color: $white;
+	}
+	.navbar-toggle {
+		background-color: $white;
+	}
+	.icon-bar {
+		background-color: $white;
+	}
+	.navbar-nav > {
+		li > a {
+			color: $white;
+			padding-left: 20px;
+			padding-right: 20px;
+			&:hover {
+				text-decoration: none;
+				background-color: $white;
+			}
+		}
+		.active > a {
+			color: $washioBlueDark;
+			background-color: transparent;
+		}
+	}
+}
+.navbar-nav > .active > a {
+	&:hover {
+		color: $washioBlueDark;
+		background-color: transparent;
+	}
+	&:focus {
+		color: $washioBlueDark;
+		background-color: transparent;
+	}
+}
+.nav > li > a:focus {
+	text-decoration: none;
+	background-color: $washioBlueDark;
+}
+}
